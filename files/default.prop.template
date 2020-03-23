@@ -11,4 +11,3 @@ ro.chip=s905x3
 ro.url.official=https://dn.odroid.com/S905X3/ODROID-C4/Android/pie/32/
 ro.url.mirror=https://www.odroid.in/mirror/dn.odroid.com/S905X3/ODROID-C4/Android/pie/32/
 kiosk_mode=false
-dev.usbhub.reset=0

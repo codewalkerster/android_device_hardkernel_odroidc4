@@ -36,16 +36,6 @@ package_extract_dir("vendor", "/vendor");
 ui_print("   update the odm partition...");
 mount("vfat", "EMMC", "/dev/block/odm", "/odm");
 
-run_program("/sbin/cp", "/vendor/etc/env.ini.template", "/odm/.env.ini.update");
-# parse env values from boot or env ini files and apply it to .env.ini.update
-run_program("/vendor/bin/update_ini.sh", "/boot.ini", "/odm/env.ini", "/odm/.env.ini.update");
-run_program("/sbin/mv", "/odm/.env.ini.update", "/odm/env.ini");
-run_program("/sbin/cp", "/vendor/etc/boot.ini.template", "/odm/boot.ini");
-
-ui_print("   change permission for makedefaultprop");
-run_program("/sbin/chmod", "755", "/vendor/bin/makedefaultprop");
-run_program("/sbin/chown", "root:shell", "/vendor/bin/makedefaultprop");
-
 ui_print("   remove lowmemorykiller config files.");
 run_program("/sbin/rm", "-rf", "/vendor/etc/lowmemorykiller*.txt");
 
@@ -61,10 +51,6 @@ then
   run_program("/sbin/rm", "-rf", "/system/priv-app/PackageInstaller/");
 endif;
 
-ui_print("   change permission for fw_setenv, fw_printenv");
-run_program("/sbin/chmod", "755", "/system/bin/fw_setenv");
-run_program("/sbin/chmod", "755", "/system/bin/fw_printenv");
-
 set_progress(0.7500);
 
 ui_print("   'product' partition is extracting...");
@@ -75,7 +61,6 @@ set_progress(0.8500);
 
 ui_print("   local_bt_address.txt is copied to FAT partition");
 mount("ext4", "EMMC", "/dev/block/vendor", "/vendor");
-run_program("/sbin/cp", "/vendor/etc/local_bt_address.txt", "/sdcard/local_bt_address.txt");
 
 set_progress(0.9000);
 
