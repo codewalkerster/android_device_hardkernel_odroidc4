@@ -47,6 +47,7 @@
         <module name="primary" halVersion="3.0">
             <attachedDevices>
                 <item>Speaker</item>
+                <item>Spdif</item>
                 <item>Built-In Mic</item>
                 <item>Built-In Back Mic</item>
                 <item>Tuner</item>
@@ -84,6 +85,9 @@
                              samplingRates="32000,44100,48000"
                              channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
                 </mixPort>
+                <mixPort name="tunnel a2dp" role="source" flags="AUDIO_OUTPUT_FLAG_DIRECT|AUDIO_OUTPUT_FLAG_HW_AV_SYNC">
+                    <profile name=""/>
+                </mixPort>
             </mixPorts>
             <devicePorts>
                 <!-- Output devices declaration, i.e. Sink DEVICE PORT -->
@@ -97,6 +101,15 @@
                     </gains>
                 </devicePort>
                 <devicePort tagName="HDMI Out" type="AUDIO_DEVICE_OUT_AUX_DIGITAL" role="sink">
+                    <gains>
+                        <gain name="gain_1" mode="AUDIO_GAIN_MODE_JOINT"
+                              minValueMB="-10000"
+                              maxValueMB="0"
+                              defaultValueMB="-6000"
+                              stepValueMB="100"/>
+                    </gains>
+                </devicePort>
+                <devicePort tagName="Spdif" type="AUDIO_DEVICE_OUT_SPDIF" role="sink">
                     <gains>
                         <gain name="gain_1" mode="AUDIO_GAIN_MODE_JOINT"
                               minValueMB="-10000"
@@ -130,6 +143,21 @@
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
                              samplingRates="8000,16000" channelMasks="AUDIO_CHANNEL_OUT_MONO"/>
                 </devicePort>
+                <devicePort tagName="BT A2DP Out" type="AUDIO_DEVICE_OUT_BLUETOOTH_A2DP" role="sink">
+                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                             samplingRates="44100"
+                             channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+                </devicePort>
+                <devicePort tagName="BT A2DP Headphones" type="AUDIO_DEVICE_OUT_BLUETOOTH_A2DP_HEADPHONES" role="sink">
+                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                             samplingRates="44100"
+                             channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+                </devicePort>
+                <devicePort tagName="BT A2DP Speaker" type="AUDIO_DEVICE_OUT_BLUETOOTH_A2DP_SPEAKER" role="sink">
+                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                             samplingRates="44100"
+                             channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+                </devicePort>
 
                 <devicePort tagName="Built-In Mic" type="AUDIO_DEVICE_IN_BUILTIN_MIC" role="source">
                     <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
@@ -154,9 +182,11 @@
             <!-- route declaration, i.e. list all available sources for a given sink -->
             <routes>
             <route type="mix" sink="HDMI Out"
-                       sources="primary output,tunnel pcm,multichannel output"/>
+                       sources="primary output,tunnel pcm,multichannel output,Tuner"/>
                 <route type="mix" sink="Speaker"
-                       sources="primary output,tunnel pcm,BT SCO Headset Mic"/>
+                       sources="primary output,tunnel pcm,BT SCO Headset Mic,Tuner"/>
+                <route type="mix" sink="Spdif"
+                       sources="primary output,tunnel raw,tunnel pcm,BT SCO Headset Mic"/>
                 <route type="mix" sink="BT SCO"
                        sources="primary output,BT SCO Headset Mic"/>
                 <route type="mix" sink="BT SCO Headset"
@@ -167,6 +197,12 @@
                        sources="primary output,tunnel pcm,BT SCO Headset Mic,Tuner"/>
                 <route type="mix" sink="primary input"
                        sources="Built-In Mic,Built-In Back Mic,Wired Headset Mic,BT SCO Headset Mic,Tuner"/>
+                <route type="mix" sink="BT A2DP Out"
+                       sources="primary output,tunnel a2dp"/>
+                <route type="mix" sink="BT A2DP Headphones"
+                       sources="primary output,tunnel a2dp"/>
+                <route type="mix" sink="BT A2DP Speaker"
+                       sources="primary output,tunnel a2dp"/>
             </routes>
 
         </module>
