@@ -5,3 +5,11 @@ then
 else
     cp /vendor/etc/default.prop.template /odm/default.prop
 fi
+
+if [ -e "/odm/afrd.ini" ]
+then
+    break
+else
+    cp /vendor/etc/afrd.ini.template /odm/afrd.ini
+fi
+
