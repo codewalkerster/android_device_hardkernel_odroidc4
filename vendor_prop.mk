@@ -18,28 +18,28 @@
 #
 
 # Set display related config
-PRODUCT_PROPERTY_OVERRIDES +=  \
+PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.has.mbxuimode=true \
     ro.vendor.platform.has.realoutputmode=true \
     ro.vendor.platform.need.display.hdmicec=true
 
 #camera max to 720p
-#PRODUCT_PROPERTY_OVERRIDES +=  \
+#PRODUCT_PROPERTY_OVERRIDES += \
     #ro.media.camera_preview.maxsize=1280x720 \
     #ro.media.camera_preview.limitedrate=1280x720x30,640x480x30,320x240x28
 
 #camera max to 1080p
-PRODUCT_PROPERTY_OVERRIDES +=  \
+PRODUCT_PROPERTY_OVERRIDES += \
     ro.media.camera_preview.maxsize=1920x1080 \
     ro.media.camera_preview.limitedrate=1920x1080x30,1280x720x30,640x480x30,320x240x28 \
     ro.media.camera_preview.usemjpeg=1
 
 #if wifi Only
-PRODUCT_PROPERTY_OVERRIDES +=  \
+PRODUCT_PROPERTY_OVERRIDES += \
     ro.radio.noril=false
 
 #if need pppoe
-PRODUCT_PROPERTY_OVERRIDES +=  \
+PRODUCT_PROPERTY_OVERRIDES += \
     ro.net.pppoe=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -50,13 +50,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #by default,the force output mode is enabled.
 #Note,please do not set the prop to true by default
 #only for netflix,just disable the feature.so set the prop to true
-PRODUCT_PROPERTY_OVERRIDES +=  \
+PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.disable.audiorawout=false
+
 #Dolby DD+ decoder option
 #this prop to for videoplayer display the DD+/DD icon when playback
-PRODUCT_PROPERTY_OVERRIDES +=  \
-    ro.vendor.platform.support.dolby=false
-
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.platform.support.dolby=true
 #DTS decoder option
 #display dts icon when playback
 PRODUCT_PROPERTY_OVERRIDES +=  \
@@ -97,9 +97,13 @@ PRODUCT_PROPERTY_OVERRIDES +=  \
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.afbcd.enable=1
 
-# default disable sdr to hdr
+# crypto volume
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.sdr2hdr.enable=false
+    ro.crypto.volume.filenames_mode=aes-256-cts
+
+# default enable sdr to hdr
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.sdr2hdr.enable=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.platform.is.tv=0

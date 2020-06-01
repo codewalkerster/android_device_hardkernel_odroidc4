@@ -89,15 +89,14 @@ TARGET_KERNEL_BUILT_FROM_SOURCE := true
 
 PRODUCT_TYPE := mbox
 
-BOARD_AML_TDK_KEY_PATH := device/hardkernel/common/tdk_keys/
+BOARD_AML_VENDOR_PATH := vendor/amlogic/common/
+BOARD_WIDEVINE_TA_PATH := vendor/amlogic/
+
 WITH_LIBPLAYER_MODULE := false
 
 OTA_UP_PART_NUM_CHANGED := false
 
-BOARD_AML_VENDOR_PATH := vendor/amlogic/common/
-
-BOARD_WIDEVINE_TA_PATH := vendor/amlogic/
-
+BOARD_AML_TDK_KEY_PATH := device/amlogic/common/tdk_keys/
 #AB_OTA_UPDATER :=true
 BUILD_WITH_AVB := false
 

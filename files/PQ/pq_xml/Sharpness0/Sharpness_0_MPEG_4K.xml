@@ -2,12 +2,12 @@
 <Form name="Sharpness_0_MPEG_4K" platform="txlx" commands="">
 <Group num="0" val="0">
 <Page tab_title="Sharpness Top" layout="30x4">
-<Control ui_type="checkbox" name="reg_pk_en" range="0~1" addr=" 0x3e27" mask="1:1" dst="U" desc="reg_pk_en : . unsigned  , default = 1" default="1" value="1" cmd="common:2,0xff900000"/>
-<Control ui_type="checkbox" name="reg_nr_en" range="0~1" addr=" 0x3e27" mask="0:0" dst="U" desc="reg_nr_en : . unsigned  , default = 1" default="1" value="1" cmd="common:2,0xff900000"/>
-<Control ui_type="checkbox" name="reg_adp_hlti_en" range="0~1" addr=" 0x3e34" mask="28:28" dst="U" desc="reg_adp_hlti_en : , 0: no cti, 1: new cti, default = 1. unsigned  , default = 1" default="1" value="1" cmd="common:2,0xff900000"/>
-<Control ui_type="checkbox" name="reg_adp_hcti_en" range="0~1" addr=" 0x3e2e" mask="28:28" dst="U" desc="reg_adp_hcti_en : , 0: no cti, 1: new cti, default = 1 . unsigned  , default = 1" default="1" value="1" cmd="common:2,0xff900000"/>
-<Control ui_type="checkbox" name="reg_adp_vlti" range="0~1" addr=" 0x3e3a" mask="14:14" dst="U" desc="reg_adp_vlti_en: enable bit of vlti, default = 1. unsigned  , default = 1" default="1" value="1" cmd="common:2,0xff900000"/>
-<Control ui_type="checkbox" name="reg_adp_vcti" range="0~1" addr=" 0x3e3f" mask="14:14" dst="U" desc="reg_adp_vcti_en: enable bit of vcti, default = 1 . unsigned  , default = 1" default="1" value="1" cmd="common:2,0xff900000"/>
+<Control ui_type="checkbox" name="reg_pk_en" range="0~1" addr=" 0x3e27" mask="1:1" dst="U" desc="reg_pk_en : . unsigned  , default = 1" default="0" value="0" cmd="common:2,0xff900000"/>
+<Control ui_type="checkbox" name="reg_nr_en" range="0~1" addr=" 0x3e27" mask="0:0" dst="U" desc="reg_nr_en : . unsigned  , default = 1" default="0" value="0" cmd="common:2,0xff900000"/>
+<Control ui_type="checkbox" name="reg_adp_hlti_en" range="0~1" addr=" 0x3e34" mask="28:28" dst="U" desc="reg_adp_hlti_en : , 0: no cti, 1: new cti, default = 1. unsigned  , default = 1" default="0" value="0" cmd="common:2,0xff900000"/>
+<Control ui_type="checkbox" name="reg_adp_hcti_en" range="0~1" addr=" 0x3e2e" mask="28:28" dst="U" desc="reg_adp_hcti_en : , 0: no cti, 1: new cti, default = 1 . unsigned  , default = 1" default="0" value="0" cmd="common:2,0xff900000"/>
+<Control ui_type="checkbox" name="reg_adp_vlti" range="0~1" addr=" 0x3e3a" mask="14:14" dst="U" desc="reg_adp_vlti_en: enable bit of vlti, default = 1. unsigned  , default = 1" default="0" value="0" cmd="common:2,0xff900000"/>
+<Control ui_type="checkbox" name="reg_adp_vcti" range="0~1" addr=" 0x3e3f" mask="14:14" dst="U" desc="reg_adp_vcti_en: enable bit of vcti, default = 1 . unsigned  , default = 1" default="0" value="0" cmd="common:2,0xff900000"/>
 <Control ui_type="slider" name="reg_dnlp_hblank" range="0~255" addr=" 0x3e45" mask="15:8" dst="U" desc="reg_dnlp_hblank: unsigned  , default = 8" default="8" value="8" cmd="common:2,0xff900000"/>
 <Control ui_type="checkbox" name="reg_dnlp_en" range="0~1" addr=" 0x3e45" mask="0:0" dst="U" desc="reg_dnlp_en : . unsigned  , default = 1" default="0" value="0" cmd="common:2,0xff900000"/>
 <Control ui_type="slider" name="reg_dnlp_input_mode" range="0~7" addr=" 0x3e29" mask="10:8" dst="U" desc="reg_dnlp_input_mode : : dnlp input options. 0: org_y; 1: gau_y; 2: gauadp_y; 3: edgadplpf_y; 4:  nr_y;5: lti_y; 6: pk_y (before os);7: pk_y (after os). unsigned  , default = 4" default="4" value="4" cmd="common:2,0xff900000"/>
@@ -499,7 +499,7 @@
 </Group>
 <Group num="1" val="127">
 <Page tab_title="Sharpness Top" layout="30x4">
-<Control ui_type="checkbox" name="reg_pk_en" range="0~1" addr=" 0x3e27" mask="1:1" dst="U" desc="reg_pk_en : . unsigned  , default = 1" default="1" value="1" cmd="common:2,0xff900000"/>
+<Control ui_type="checkbox" name="reg_pk_en" range="0~1" addr=" 0x3e27" mask="1:1" dst="U" desc="reg_pk_en : . unsigned  , default = 1" default="0" value="0" cmd="common:2,0xff900000"/>
 <Control ui_type="checkbox" name="reg_nr_en" range="0~1" addr=" 0x3e27" mask="0:0" dst="U" desc="reg_nr_en : . unsigned  , default = 1" default="0" value="0" cmd="common:2,0xff900000"/>
 <Control ui_type="checkbox" name="reg_adp_hlti_en" range="0~1" addr=" 0x3e34" mask="28:28" dst="U" desc="reg_adp_hlti_en : , 0: no cti, 1: new cti, default = 1. unsigned  , default = 1" default="0" value="0" cmd="common:2,0xff900000"/>
 <Control ui_type="checkbox" name="reg_adp_hcti_en" range="0~1" addr=" 0x3e2e" mask="28:28" dst="U" desc="reg_adp_hcti_en : , 0: no cti, 1: new cti, default = 1 . unsigned  , default = 1" default="0" value="0" cmd="common:2,0xff900000"/>
@@ -996,12 +996,12 @@
 </Group>
 <Group num="2" val="255">
 <Page tab_title="Sharpness Top" layout="30x4">
-<Control ui_type="checkbox" name="reg_pk_en" range="0~1" addr=" 0x3e27" mask="1:1" dst="U" desc="reg_pk_en : . unsigned  , default = 1" default="1" value="1" cmd="common:2,0xff900000"/>
-<Control ui_type="checkbox" name="reg_nr_en" range="0~1" addr=" 0x3e27" mask="0:0" dst="U" desc="reg_nr_en : . unsigned  , default = 1" default="1" value="1" cmd="common:2,0xff900000"/>
-<Control ui_type="checkbox" name="reg_adp_hlti_en" range="0~1" addr=" 0x3e34" mask="28:28" dst="U" desc="reg_adp_hlti_en : , 0: no cti, 1: new cti, default = 1. unsigned  , default = 1" default="1" value="1" cmd="common:2,0xff900000"/>
-<Control ui_type="checkbox" name="reg_adp_hcti_en" range="0~1" addr=" 0x3e2e" mask="28:28" dst="U" desc="reg_adp_hcti_en : , 0: no cti, 1: new cti, default = 1 . unsigned  , default = 1" default="1" value="1" cmd="common:2,0xff900000"/>
-<Control ui_type="checkbox" name="reg_adp_vlti" range="0~1" addr=" 0x3e3a" mask="14:14" dst="U" desc="reg_adp_vlti_en: enable bit of vlti, default = 1. unsigned  , default = 1" default="1" value="1" cmd="common:2,0xff900000"/>
-<Control ui_type="checkbox" name="reg_adp_vcti" range="0~1" addr=" 0x3e3f" mask="14:14" dst="U" desc="reg_adp_vcti_en: enable bit of vcti, default = 1 . unsigned  , default = 1" default="1" value="1" cmd="common:2,0xff900000"/>
+<Control ui_type="checkbox" name="reg_pk_en" range="0~1" addr=" 0x3e27" mask="1:1" dst="U" desc="reg_pk_en : . unsigned  , default = 1" default="0" value="0" cmd="common:2,0xff900000"/>
+<Control ui_type="checkbox" name="reg_nr_en" range="0~1" addr=" 0x3e27" mask="0:0" dst="U" desc="reg_nr_en : . unsigned  , default = 1" default="0" value="0" cmd="common:2,0xff900000"/>
+<Control ui_type="checkbox" name="reg_adp_hlti_en" range="0~1" addr=" 0x3e34" mask="28:28" dst="U" desc="reg_adp_hlti_en : , 0: no cti, 1: new cti, default = 1. unsigned  , default = 1" default="0" value="0" cmd="common:2,0xff900000"/>
+<Control ui_type="checkbox" name="reg_adp_hcti_en" range="0~1" addr=" 0x3e2e" mask="28:28" dst="U" desc="reg_adp_hcti_en : , 0: no cti, 1: new cti, default = 1 . unsigned  , default = 1" default="0" value="0" cmd="common:2,0xff900000"/>
+<Control ui_type="checkbox" name="reg_adp_vlti" range="0~1" addr=" 0x3e3a" mask="14:14" dst="U" desc="reg_adp_vlti_en: enable bit of vlti, default = 1. unsigned  , default = 1" default="0" value="0" cmd="common:2,0xff900000"/>
+<Control ui_type="checkbox" name="reg_adp_vcti" range="0~1" addr=" 0x3e3f" mask="14:14" dst="U" desc="reg_adp_vcti_en: enable bit of vcti, default = 1 . unsigned  , default = 1" default="0" value="0" cmd="common:2,0xff900000"/>
 <Control ui_type="slider" name="reg_dnlp_hblank" range="0~255" addr=" 0x3e45" mask="15:8" dst="U" desc="reg_dnlp_hblank: unsigned  , default = 8" default="8" value="8" cmd="common:2,0xff900000"/>
 <Control ui_type="checkbox" name="reg_dnlp_en" range="0~1" addr=" 0x3e45" mask="0:0" dst="U" desc="reg_dnlp_en : . unsigned  , default = 1" default="0" value="0" cmd="common:2,0xff900000"/>
 <Control ui_type="slider" name="reg_dnlp_input_mode" range="0~7" addr=" 0x3e29" mask="10:8" dst="U" desc="reg_dnlp_input_mode : : dnlp input options. 0: org_y; 1: gau_y; 2: gauadp_y; 3: edgadplpf_y; 4:  nr_y;5: lti_y; 6: pk_y (before os);7: pk_y (after os). unsigned  , default = 4" default="4" value="4" cmd="common:2,0xff900000"/>
