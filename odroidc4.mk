@@ -213,6 +213,14 @@ endif
 PRODUCT_COPY_FILES += \
     device/hardkernel/$(PRODUCT_DIR)/fstab.system.odroidc4:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.odroidc4
 
+
+#########################################################################
+#
+#                                                WiFi/BT Combo
+#
+#########################################################################
+TARGET_SUPPORT_COMBO := false
+
 #########################################################################
 #
 #                                                WiFi
@@ -233,7 +241,9 @@ PRODUCT_DEFAULT_WIFI_CHANNELS := 11
 #########################################################################
 
 BOARD_HAVE_BLUETOOTH := true
-#BOARD_HAVE_BLUETOOTH_BCM := true
+ifeq ($(TARGET_SUPPORT_COMBO), true)
+BOARD_HAVE_BLUETOOTH_BCM := true
+endif
 include device/hardkernel/common/bluetooth.mk
 
 #########################################################################
