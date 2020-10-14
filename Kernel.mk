@@ -34,6 +34,7 @@ BOARD_VENDOR_KERNEL_MODULES     += $(PRODUCT_OUT)/obj/lib_vendor/cp210x.ko
 BOARD_VENDOR_KERNEL_MODULES     += $(PRODUCT_OUT)/obj/lib_vendor/ch341.ko
 BOARD_VENDOR_KERNEL_MODULES     += $(PRODUCT_OUT)/obj/lib_vendor/ftdi_sio.ko
 BOARD_VENDOR_KERNEL_MODULES     += $(PRODUCT_OUT)/obj/lib_vendor/pl2303.ko
+BOARD_VENDOR_KERNEL_MODULES     += $(PRODUCT_OUT)/obj/lib_vendor/esp8089.ko
 
 WIFI_OUT  := $(TARGET_OUT_INTERMEDIATES)/hardware/wifi
 
