@@ -9,7 +9,8 @@ INSTALLED_KERNEL_TARGET := $(PRODUCT_OUT)/kernel
 
 BOARD_MKBOOTIMG_ARGS := --kernel_offset $(BOARD_KERNEL_OFFSET)
 
-KERNEL_DEVICETREE := meson64_odroidc4_android
+KERNEL_DEVICETREE_C4 := meson64_odroidc4_android
+KERNEL_DEVICETREE_HC4 := meson64_odroidhc4_android
 DTB_OUT := $(PRODUCT_OUT)/obj/KERNEL_OBJ/arch/$(KERNEL_ARCH)/boot/dts/amlogic
 DTBO_OUT := $(DTB_OUT)/overlays/odroidc4
 KERNEL_DTBO += $(DTBO_OUT)/*.dtbo
@@ -88,11 +89,12 @@ savekernelconfig: $(KERNEL_OUT) $(KERNEL_CONFIG)
 build-modules-quick:
 	    $(media-modules)
 
-$(INTERMEDIATES_DTBS): $(KERNEL_CONFIG)
-	$(MAKE) -C $(KERNEL_ROOTDIR) O=../$(KERNEL_OUT) ARCH=$(KERNEL_ARCH) CROSS_COMPILE=$(PREFIX_CROSS_COMPILE) dtbs
-	mkdir -p $@
-	cp $(DTB_OUT)/$(KERNEL_DEVICETREE).dtb $(KERNEL_DTBO) \
-		$@
+$(INTERMEDIATES_DTBS): $(INTERMEDIATES_KERNEL)
+	mkdir -p $(INTERMEDIATES_DTBS)
+	cp $(DTB_OUT)/$(KERNEL_DEVICETREE_C4).dtb $(KERNEL_DTBO) \
+		$(INTERMEDIATES_DTBS)
+	cp $(DTB_OUT)/$(KERNEL_DEVICETREE_HC4).dtb $(KERNEL_DTBO) \
+		$(INTERMEDIATES_DTBS)
 
 $(PRODUCT_OUT)/dtbs.img: $(INTERMEDIATES_DTBS)
 	mkfs.cramfs $^ $@
