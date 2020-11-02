@@ -13,3 +13,9 @@ else
     cp /vendor/etc/afrd.ini.template /odm/afrd.ini
 fi
 
+if [ -e "/odm/usb_modeswitch.conf" ]
+then
+    break
+else
+    cp /vendor/etc/usb_modeswitch.conf.template /odm/usb_modeswitch.conf
+fi

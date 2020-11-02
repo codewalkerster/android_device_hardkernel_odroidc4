@@ -43,6 +43,7 @@ run_program("/sbin/chown", "root:shell", "/vendor/bin/update_ini.sh");
 run_program("/vendor/bin/update_ini.sh", "/odm/boot.ini", "/odm/env.ini", "/odm/.env.ini.update");
 run_program("/sbin/mv", "/odm/.env.ini.update", "/odm/env.ini");
 run_program("/sbin/cp", "/vendor/etc/boot.ini.template", "/odm/boot.ini");
+run_program("/sbin/cp", "/vendor/etc/usb_modeswitch.conf.template", "/odm/usb_modeswitch.conf");
 
 ui_print("   remove lowmemorykiller config files.");
 run_program("/sbin/rm", "-rf", "/vendor/etc/lowmemorykiller*.txt");
@@ -62,6 +63,10 @@ endif;
 #afrd
 run_program("/sbin/chmod", "755", "/vendor/bin/afrd");
 run_program("/sbin/chown", "root:shell", "/vendor/bin/afrd");
+
+#usb_modeswitch
+run_program("/sbin/chmod", "755", "/vendor/bin/usb_modeswitch");
+run_program("/sbin/chown", "root:shell", "/vendor/bin/usb_modeswitch");
 
 set_progress(0.7500);
 ui_print("   change permission for fw_setenv, fw_printenv");
