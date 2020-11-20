@@ -19,3 +19,10 @@ then
 else
     cp /vendor/etc/usb_modeswitch.conf.template /odm/usb_modeswitch.conf
 fi
+
+if [ -f /odm/firstboot ]; then
+    resize2fs /dev/block/data
+    rm /odm/firstboot
+fi
+
+echo "Finish"
