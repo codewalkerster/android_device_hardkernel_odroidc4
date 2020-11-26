@@ -82,8 +82,6 @@ if test "${hdmimode}" = "custombuilt"; then setenv cmode "modeline=${modeline} c
 
 setenv initargs "${rootopt} ${consoleopt} ${ramoopsopt} max_freq_a55=${max_freq_little} ${cmode} ${miscopt} boot_device=${boot_device}"
 
-setenv bootargs "${initargs} ${androidopt} ${displayopt} logo=${logo} hdmimode=${hdmimode} voutmode=${voutmode} osd_reverse=${osd_reverse} video_reverse=${video_reverse} gpiopower=${gpiopower} enable_wol=${enable_wol}"
-
 movi read dtbs 0 ${cramfsaddr}
 cramfsload ${dtb_mem_addr} meson64_odroid${variant}_android.dtb
 fdt addr ${dtb_mem_addr}
@@ -93,7 +91,14 @@ for overlay in ${overlays}; do
 	fdt apply ${dtboaddr}
 done
 
-movi read boot 0 ${loadaddr}
+if test ${reboot_mode} = "factory_reset" ; then
+	setenv recoveryargs "recovery_path=recovery recovery_offset=0"
+	setenv bootargs "${initargs} ${androidopt} ${displayopt} logo=${logo} hdmimode=${hdmimode} voutmode=${voutmode} osd_reverse=${osd_reverse} video_reverse=${video_reverse} gpiopower=${gpiopower} enable_wol=${enable_wol} ${recoveryargs}"
+	movi read recovery 0 ${loadaddr}
+else
+	setenv bootargs "${initargs} ${androidopt} ${displayopt} logo=${logo} hdmimode=${hdmimode} voutmode=${voutmode} osd_reverse=${osd_reverse} video_reverse=${video_reverse} gpiopower=${gpiopower} enable_wol=${enable_wol}"
+	movi read boot 0 ${loadaddr}
+fi
 if test "${heartbeat}" = "0"; then
 	fdt set /leds/blueled linux,default-trigger "none";
 fi
