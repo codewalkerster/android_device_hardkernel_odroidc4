@@ -43,7 +43,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.net.pppoe=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
-   ro.vendor.platform.support.dolbyvision=false
+   ro.vendor.platform.support.dolbyvision=true
 
 #the prop is used for enable or disable
 #DD+/DD force output when HDMI EDID is not supported
@@ -71,7 +71,7 @@ PRODUCT_PROPERTY_OVERRIDES +=  \
 
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    media.support.dolbyvision = false
+    media.support.dolbyvision = true
 
 #add for video boot, 1 means use video boot, others not .
 PRODUCT_PROPERTY_OVERRIDES +=  \

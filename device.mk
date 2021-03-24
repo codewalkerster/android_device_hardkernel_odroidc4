@@ -117,11 +117,6 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 
-
-
-
-
-
 #To remove healthd from the build
 PRODUCT_PACKAGES += android.hardware.health@2.0-service.override
 DEVICE_FRAMEWORK_MANIFEST_FILE += \
