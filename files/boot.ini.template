@@ -100,6 +100,7 @@ else
 	setenv bootargs "${initargs} ${androidopt} ${displayopt} logo=${logo} hdmimode=${hdmimode} voutmode=${voutmode} osd_reverse=${osd_reverse} video_reverse=${video_reverse} gpiopower=${gpiopower} enable_wol=${enable_wol}"
 	movi read boot 0 ${loadaddr}
 fi
+
 if test "${heartbeat}" = "0"; then
 	fdt set /leds/blueled linux,default-trigger "none";
 fi
