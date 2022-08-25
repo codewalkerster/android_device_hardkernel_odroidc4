@@ -98,6 +98,11 @@ for overlay in ${overlays}; do
 	fdt apply ${dtboaddr}
 done
 
+for overlay in ${user_overlays}; do
+	load ${devtype} ${devnum} ${dtboaddr} ${overlay}.dtbo
+	fdt apply ${dtboaddr}
+done
+
 if test ${reboot_mode} = "factory_reset" ; then
 	if test ${hdmimode} == 2160p*; then setenv hdmimode 1080p60hz; fi;
 	setenv recoveryargs "recovery_path=recovery recovery_offset=0"
