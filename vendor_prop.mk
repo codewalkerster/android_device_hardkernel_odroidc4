@@ -116,3 +116,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #default media vol ,max 15
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.media_vol_default=8
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    media.omx.out_buffer1=3
