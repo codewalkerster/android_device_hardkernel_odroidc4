@@ -18,6 +18,7 @@
 #
 
 PRODUCT_DIR := odroidc4
+ANDROID_BUILD_TYPE := 64
 
 # Dynamic enable start/stop zygote_secondary in 64bits
 # and 32bit system, default closed
@@ -33,8 +34,6 @@ else
 $(call inherit-product, build/target/product/core_64_bit.mk)
 endif
 endif
-
-BOARD_INSTALL_VULKAN := true
 
 $(call inherit-product, device/hardkernel/$(PRODUCT_DIR)/vendor_prop.mk)
 $(call inherit-product, device/hardkernel/common/products/mbox/product_mbox.mk)
@@ -162,11 +161,10 @@ endif
 #
 #                           Kernel Arch
 #
-#
-#########################################################################
-#ifndef KERNEL_A32_SUPPORT
-#KERNEL_A32_SUPPORT := true
-#endif
+########################################################################
+ifndef KERNEL_A32_SUPPORT
+KERNEL_A32_SUPPORT := false
+endif
 
 ########################################################################
 #
@@ -270,7 +268,11 @@ PRODUCT_COPY_FILES += \
 # Audio
 #
 BOARD_ALSA_AUDIO=tiny
+BOARD_HAVE_HARDWARE_EQDRC_AUGE := true
 include device/hardkernel/common/audio.mk
+
+PRODUCT_PACKAGES += \
+    libvirtualbass
 
 #########################################################################
 #

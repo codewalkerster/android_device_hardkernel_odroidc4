@@ -60,13 +60,11 @@ ifeq ($(USE_XML_AUDIO_POLICY_CONF), 1)
 ifneq ($(TARGET_BUILD_LIVETV),true)
 PRODUCT_COPY_FILES += \
     device/hardkernel/$(PRODUCT_DIR)/files/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
-    device/hardkernel/$(PRODUCT_DIR)/files/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
-    device/hardkernel/$(PRODUCT_DIR)/files/audio_policy_configuration_dolby_ms12.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_dolby_ms12.xml
+    device/hardkernel/$(PRODUCT_DIR)/files/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml
 else
 PRODUCT_COPY_FILES += \
     device/hardkernel/$(PRODUCT_DIR)/files/audio_policy_configuration_livetv.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
-    device/hardkernel/$(PRODUCT_DIR)/files/audio_policy_volumes_livetv.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
-    device/hardkernel/$(PRODUCT_DIR)/files/audio_policy_configuration_dolby_ms12.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_dolby_ms12.xml
+    device/hardkernel/$(PRODUCT_DIR)/files/audio_policy_volumes_livetv.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml
 endif
 else
 PRODUCT_COPY_FILES += \
@@ -120,11 +118,6 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
-
-
-
-
-
 
 #To remove healthd from the build
 PRODUCT_PACKAGES += android.hardware.health@2.0-service.override

@@ -92,10 +92,6 @@
             bitRate="23050"
             sampleRate="16000"
             channels="1" />
-            <Audio codec="amrwb"
-            bitRate="23050"
-            sampleRate="16000"
-            channels="1" />
         </EncoderProfile>
 
         <EncoderProfile quality="timelapsecif" fileFormat="3gp" duration="30">
@@ -105,10 +101,6 @@
             height="288"
             frameRate="30" />
 
-            <Audio codec="amrwb"
-            bitRate="23050"
-            sampleRate="16000"
-            channels="1" />
             <Audio codec="amrwb"
             bitRate="23050"
             sampleRate="16000"
