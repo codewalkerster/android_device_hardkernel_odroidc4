@@ -107,7 +107,7 @@ done
 if test ${reboot_mode} = "factory_reset" ; then
 	if test ${hdmimode} == 2160p*; then setenv hdmimode 1080p60hz; fi;
 	setenv recoveryargs "recovery_part=recovery recovery_offset=0"
-	setenv bootargs "${initargs} ${androidopt} ${displayopt} logo=${logo} hdmimode=${hdmimode} voutmode=${voutmode} osd_reverse=${osd_reverse} video_reverse=${video_reverse} gpiopower=${gpiopower} enable_wol=${enable_wol} ${recoveryargs}"
+	setenv bootargs "${initargs} ${androidopt} ${displayopt} logo=${logo} hdmimode=${hdmimode} voutmode=${voutmode} osd_reverse=${osd_reverse} video_reverse=${video_reverse} ${recoveryargs}"
 	movi read recovery 0 ${loadaddr}
 else
 	setenv bootargs "${initargs} ${androidopt} ${displayopt} logo=${logo} hdmimode=${hdmimode} voutmode=${voutmode} osd_reverse=${osd_reverse} video_reverse=${video_reverse} gpiopower=${gpiopower} enable_wol=${enable_wol}"
