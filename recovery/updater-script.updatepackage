@@ -114,5 +114,9 @@ set_progress(0.9000);
 ui_print("   Remove /cache/update.zip");
 run_program("/sbin/rm", "-rf", "/cache/update.zip");
 
+mount("vfat", "EMMC", "/dev/block/odm", "/sdcard");
+run_program("/sbin/sed", "-i", "s/^[[:blank:]]setenv[[:blank:]]bootargs.*${recoveryargs}\"/\tsetenv bootargs \"${initargs} ${androidopt} ${displayopt} logo=${logo} hdmimode=${hdmimode} voutmode=${voutmode} osd_reverse=${osd_reverse} video_reverse=${video_reverse} ${recoveryargs}\"/g", "/sdcard/boot.ini");
+unmount("/sdcard");
+
 ui_print("Android update is completed.\nHave fun with ODROID-C4!\n\n");
 set_progress(1.0000);
