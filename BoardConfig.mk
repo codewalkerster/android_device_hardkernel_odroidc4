@@ -46,7 +46,7 @@ TARGET_NO_BOOTLOADER := false
 TARGET_NO_KERNEL := false
 TARGET_NO_RADIOIMAGE := true
 
-TARGET_BOARD_PLATFORM := u202
+TARGET_BOARD_PLATFORM := ac213
 TARGET_BOOTLOADER_BOARD_NAME := odroidc4
 
 # Allow passing `--second` to mkbootimg via 2ndbootloader.
