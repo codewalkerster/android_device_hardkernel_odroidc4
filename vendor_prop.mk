@@ -106,7 +106,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Low memory platform
 PRODUCT_PROPERTY_OVERRIDES +=  \
-    ro.config.low_ram=true \
     ro.platform.support.dolbyvision=true
 
 # default enable sdr to hdr
