@@ -6,17 +6,3 @@ else
     cp /vendor/etc/boot.ini.template /odm/boot.ini
     cp /vendor/etc/env.ini.template /odm/env.ini
 fi
-
-AVAILABLE_MEM=$(free -m | awk '/^Mem:/{print $2}')
-
-THRESHOLD=2048
-
-echo "Available mem ${AVAILABLE_MEM}MB"
-
-if [ "$AVAILABLE_MEM" -ge "$THRESHOLD" ]; then
-    echo "swap on"
-    swapon /dev/block/zram0
-else
-    echo "swap off"
-    swapoff /dev/block/zram0
-fi
